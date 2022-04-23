@@ -5,8 +5,6 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomFacilityController;
 use App\Http\Controllers\UserController;
-use App\Http\Livewire\Login;
-use App\Http\Livewire\Register;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +24,8 @@ Route::get('/', function () {
 
 Route::middleware('auth.no')->group(function () {
     Route::prefix('auth')->group(function () {
-        Route::get('/login', Login::class)->name('login');
-        Route::get('/register', Register::class)->name('register');
+        Route::get('/login', [UserController::class, 'login'])->name('login');
+        Route::get('/register', [UserController::class, 'create'])->name('register');
     });
 });
 
