@@ -56,8 +56,10 @@
                                 <a href="{{ route('receptionist.rooms.index') }}"
                                     class="dropdown-item {{ $title == 'Rooms List' ? 'active' : '' }}">Rooms List</a>
                             @endif
-                            <a href="{{ route('logout') }}"
-                                class="dropdown-item {{ $title == '' ? 'active' : '' }}">Logout</a>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input type="submit" value="Logout" class="dropdown-item">
+                            </form>
                         </div>
                     </li>
                 @endauth
