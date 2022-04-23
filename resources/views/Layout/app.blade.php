@@ -22,7 +22,7 @@
 
     <x-msgbar></x-msgbar>
 
-    <main class="min-vh-100 min-vw-100">
+    <main class="min-vh-100">
         @yield('content')
     </main>
 
