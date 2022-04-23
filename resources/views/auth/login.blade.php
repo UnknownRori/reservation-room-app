@@ -1,5 +1,5 @@
 @extends('Layouts.app')
-@section('title', 'Home')
+@section('title', 'Login')
 @section('content')
-    Hello World
+    @livewire('login')
 @endsection
