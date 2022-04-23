@@ -30,13 +30,15 @@
                         {{ session('message') }}
                     </div>
                 @endif
-                <div class="row">
-                    <input type="submit" value="Register" class="btn btn-primary">
-                    <div wire:loading wire:target="update" class="pl-3">
+                <div class="row align-content-center items-center text-center">
+                    <input type="submit" value="Login" class="btn btn-primary">
+                    <div wire:loading.flex wire:target="update" class="align-items-center px-3">
                         <div class="spinner-border" role="status">
-                            <span class="sr-only">Authenticating...</span>
+                            <span class="sr-only"></span>
                         </div>
+                        Registering...
                     </div>
+                    <a class="d-flex align-items-center px-3" href="{{ route('login') }}">Already have account?</a>
                 </div>
             </div>
         </form>

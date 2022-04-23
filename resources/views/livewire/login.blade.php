@@ -23,13 +23,15 @@
                         {{ session('message') }}
                     </div>
                 @endif
-                <div class="row">
+                <div class="row align-content-center items-center text-center">
                     <input type="submit" value="Login" class="btn btn-primary">
-                    <div wire:loading wire:target="update" class="pl-3">
+                    <div wire:loading.flex wire:target="update" class="align-items-center px-3">
                         <div class="spinner-border" role="status">
-                            <span class="sr-only">Authenticating...</span>
+                            <span class="sr-only"></span>
                         </div>
+                        Authenticating...
                     </div>
+                    <a class="d-flex align-items-center px-3" href="{{ route('register') }}">Didn't have account?</a>
                 </div>
             </div>
         </form>
