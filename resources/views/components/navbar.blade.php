@@ -50,11 +50,13 @@
                                 <a href="{{ route('admin.facility.create') }}"
                                     class="dropdown-item {{ $title == 'Create new hotel facility' ? 'active' : '' }}">Create
                                     Hotel Facility</a>
+                                <div class="dropdown-divider"></div>
                             @elseif (Auth::user()->roles == 'receptionist')
                                 <a href="{{ route('receptionist.orders.index') }}"
                                     class="dropdown-item {{ $title == 'Orders List' ? 'active' : '' }}">Orders List</a>
                                 <a href="{{ route('receptionist.rooms.index') }}"
                                     class="dropdown-item {{ $title == 'Rooms List' ? 'active' : '' }}">Rooms List</a>
+                                <div class="dropdown-divider"></div>
                             @endif
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
