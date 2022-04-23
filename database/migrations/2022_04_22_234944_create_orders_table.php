@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('users')->cascadeOnDelete();;
             $table->date('check_in');
             $table->date('check_out');
             $table->enum('type', ['superior', 'deluxe']);
