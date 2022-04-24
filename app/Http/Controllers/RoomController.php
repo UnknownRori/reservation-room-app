@@ -47,7 +47,9 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        return view('rooms.show', [
+            'room' => $room
+        ]);
     }
 
     /**
@@ -81,6 +83,7 @@ class RoomController extends Controller
      */
     public function destroy(Room $room)
     {
-        //
+        if (Room::destroy($room->id)) return redirect()->back()->with('msg', ['success', 'Room deletion success!']);
+        return redirect()->back()->with('msg', ['danger', 'Room deletion failed!']);
     }
 }
