@@ -1,10 +1,24 @@
 <div>
     <div class="bg-light p-3 shadow">
+        <div class="d-flex my-2">
+            <div class="col-md-6">
+                <label>Room Number</label>
+                <input type="text" wire:model="no_room" placeholder="Enter Search Room Number" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label>Room Type</label>
+                <select wire:model="room_type" class="form-control">
+                    <option value=""></option>
+                    <option value="superior">Superior</option>
+                    <option value="deluxe">Deluxe</option>
+                </select>
+            </div>
+        </div>
         <table class="table-hover table-light table">
             <tr>
                 <td>ID</td>
                 <td>Photo</td>
-                <td>No Room</td>
+                <td>Room Number</td>
                 <td>Type</td>
                 <td>Action</td>
             </tr>
@@ -14,14 +28,14 @@
                         {{ $data->id }}
                     </td>
                     <td>
-                        <img class="img-fluid" width="50" height="50" src="{{ Storage::url($data->img) }}"
-                            alt="{{ $data->no_room }}">
+                        <a href="{{ $data->img ? Storage::url($data->img) : '#' }}"
+                            title="Image URI">{{ $data->no_room }}</a>
                     </td>
                     <td>
                         {{ $data->no_room }}
                     </td>
                     <td>
-                        {{ $data->type }}
+                        {{ Str::ucfirst($data->type) }}
                     </td>
                     <td>
                         <div class="dropdown">
