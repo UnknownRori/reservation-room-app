@@ -14,7 +14,8 @@
                         {{ $data->id }}
                     </td>
                     <td>
-                        <img src="{{ Storage::url($data->img) }}" alt="{{ $data->no_room }}">
+                        <img class="img-fluid" width="50" height="50" src="{{ Storage::url($data->img) }}"
+                            alt="{{ $data->no_room }}">
                     </td>
                     <td>
                         {{ $data->no_room }}
