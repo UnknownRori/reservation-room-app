@@ -12,6 +12,11 @@ class Orderslist extends Component
 
     protected $paginationTheme = 'bootstrap';
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         return view('livewire.orderslist', [
