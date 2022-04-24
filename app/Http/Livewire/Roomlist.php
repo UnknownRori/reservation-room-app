@@ -16,9 +16,7 @@ class Roomlist extends Component
     protected $paginationTheme = 'bootstrap';
 
     public function updatingSearch()
-
     {
-
         $this->resetPage();
     }
 
