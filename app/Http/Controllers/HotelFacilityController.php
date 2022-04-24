@@ -14,7 +14,7 @@ class HotelFacilityController extends Controller
      */
     public function index()
     {
-        //
+        return view('facilities.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class HotelFacilityController extends Controller
      */
     public function create()
     {
-        //
+        return view('facilities.form');
     }
 
     /**
@@ -57,7 +57,9 @@ class HotelFacilityController extends Controller
      */
     public function edit(HotelFacility $hotelFacility)
     {
-        //
+        return view('facilities.form', [
+            'facilities' => $hotelFacility
+        ]);
     }
 
     /**
