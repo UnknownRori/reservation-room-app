@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class HotelFacilityForm extends Component
+class Hotelfacilityform extends Component
 {
+    public $facility_id, $name, $description, $img, $update;
+
     public function render()
     {
-        return view('livewire.hotel-facility-form');
+        return view('livewire.hotelfacilityform');
     }
 }
