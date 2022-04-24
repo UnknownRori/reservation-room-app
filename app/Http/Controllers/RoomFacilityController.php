@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\RoomFacility;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class RoomFacilityController extends Controller
      */
     public function index()
     {
-        //
+        return view('rooms.facility.index');
     }
 
     /**
@@ -22,9 +23,11 @@ class RoomFacilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($room)
     {
-        //
+        return view('rooms.facility.form', [
+            'room' => Room::where('no_room', $room)->first()
+        ]);
     }
 
     /**
@@ -55,9 +58,11 @@ class RoomFacilityController extends Controller
      * @param  \App\Models\RoomFacility  $roomFacility
      * @return \Illuminate\Http\Response
      */
-    public function edit(RoomFacility $roomFacility)
+    public function edit($roomFacility)
     {
-        //
+        return view('rooms.facility.form', [
+            'facility' => RoomFacility::findOrFail($roomFacility)
+        ]);
     }
 
     /**
@@ -80,6 +85,7 @@ class RoomFacilityController extends Controller
      */
     public function destroy(RoomFacility $roomFacility)
     {
-        //
+        if (Room::destroy($roomFacility->id)) return redirect()->back()->with('msg', ['success', 'Room Facility deletion success!']);
+        return redirect()->back()->with('msg', ['danger', 'Room Facility deletion failed!']);
     }
 }
