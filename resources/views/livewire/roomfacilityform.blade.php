@@ -26,7 +26,7 @@
                         <img class="img-fluid" src="{{ $img->temporaryUrl() }}" width="300" height="300">
                     </div>
                 @endif
-                @error('password')
+                @error('img')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
