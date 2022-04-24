@@ -25,7 +25,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        return view('rooms.form');
     }
 
     /**
@@ -60,7 +60,9 @@ class RoomController extends Controller
      */
     public function edit(Room $room)
     {
-        //
+        return view('rooms.form', [
+            'room' => $room
+        ]);
     }
 
     /**
