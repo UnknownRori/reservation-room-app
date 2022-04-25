@@ -2,7 +2,7 @@
 @if (isset($room))
     @section('title', "Editing {$room->no_room}")
 @else
-    @section('title', 'Create new Room')
+    @section('title', 'Create new room')
 @endif
 @section('content')
     <div class="container mt-2">
