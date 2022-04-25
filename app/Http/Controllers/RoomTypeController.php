@@ -14,7 +14,7 @@ class RoomTypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('roomtype.index');
     }
 
     /**
