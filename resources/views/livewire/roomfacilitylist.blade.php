@@ -2,8 +2,15 @@
     <div class="bg-light p-3 shadow">
         <div class="d-flex my-2">
             <div class="col-md-6">
-                <label>Facility Name</label>
                 <input type="text" wire:model="name" placeholder="Enter Search Facility Name" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <select wire:model="type" class="form-control">
+                    <option value=""></option>
+                    @foreach ($types as $data)
+                        <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <table class="table-hover table-light table">
