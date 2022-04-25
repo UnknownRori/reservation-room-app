@@ -4,6 +4,7 @@ use App\Http\Controllers\HotelFacilityController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomFacilityController;
+use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,14 +55,19 @@ Route::middleware('auth.admin')->group(function () {
         Route::get('/rooms/{room:no_room}', [RoomController::class, 'edit'])->name('admin.rooms.edit');
         Route::delete('/rooms/{room:no_room}', [RoomController::class, 'destroy'])->name('admin.rooms.destroy');
 
-        Route::get('/type/{roomtype:name}/facility/create', [RoomFacilityController::class, 'create'])->name('admin.room.facility.create');
+        Route::get('/room/{roomtype:name}/facility/create', [RoomFacilityController::class, 'create'])->name('admin.room.facility.create');
         Route::get('/room/facilities', [RoomFacilityController::class, 'index'])->name('admin.room.facility.index');
         Route::get('/room/facilities/{id}/edit', [RoomFacilityController::class, 'edit'])->name('admin.room.facility.edit');
-        Route::post('/room/facilities/{id}/delete', [RoomFacilityController::class, 'destroy'])->name('admin.room.facility.destroy');
+        Route::delete('/room/facilities/{id}/delete', [RoomFacilityController::class, 'destroy'])->name('admin.room.facility.destroy');
 
         Route::get('/hotel-facilities', [HotelFacilityController::class, 'index'])->name('admin.facility.index');
         Route::get('/hotel-facilities/create', [HotelFacilityController::class, 'create'])->name('admin.facility.create');
         Route::get('/hotel-facilities/{hotelfacility:id}/edit', [HotelFacilityController::class, 'edit'])->name('admin.facility.edit');
-        Route::post('/hotel-facilities/{hotelfacility:id}/delete', [HotelFacilityController::class, 'destroy'])->name('admin.facility.destroy');
+        Route::delete('/hotel-facilities/{hotelfacility:id}/delete', [HotelFacilityController::class, 'destroy'])->name('admin.facility.destroy');
+
+        Route::get('/roomtype', [RoomTypeController::class, 'index'])->name('admin.roomtype.index');
+        Route::get('/roomtype/create', [RoomTypeController::class, 'create'])->name('admin.roomtype.create');
+        Route::get('/roomtype/{RoomType:name}/edit', [RoomController::class, 'edit'])->name('admin.roomtype.edit');
+        Route::delete('/roomtype/{RoomType:name}/delete', [RoomController::class, 'destroy'])->name('admin.roomtype.destroy');
     });
 });

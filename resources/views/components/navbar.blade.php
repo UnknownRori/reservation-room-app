@@ -49,6 +49,13 @@
                                     class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Rooms
                                     Facility List</a>
                                 <div class="dropdown-divider"></div>
+                                <a href="{{ route('admin.roomtype.index') }}"
+                                    class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Room
+                                    Type List</a>
+                                <a href="{{ route('admin.roomtype.create') }}"
+                                    class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Create
+                                    Room Type</a>
+                                <div class="dropdown-divider"></div>
                                 <a href="{{ route('admin.facility.index') }}"
                                     class="dropdown-item {{ $title == 'Hotel Facility List' ? 'active' : '' }}">Hotel
                                     Facility List</a>
