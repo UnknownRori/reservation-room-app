@@ -34,7 +34,7 @@
                         <div class="spinner-border" role="status">
                             <span class="sr-only"></span>
                         </div>
-                        {{ $update ? 'Updating Existing Room' : 'Creating Room...' }}
+                        {{ $update ? 'Updating existing room...' : 'Creating new room...' }}
                     </div>
                 </div>
             </div>

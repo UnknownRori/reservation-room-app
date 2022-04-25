@@ -60,7 +60,7 @@
                         <div class="spinner-border" role="status">
                             <span class="sr-only"></span>
                         </div>
-                        {{ $update ? 'Updating Existing Room Facility' : 'Creating Room Facility...' }}
+                        {{ $update ? 'Updating existing room facility...' : 'Creating new room facility...' }}
                     </div>
                 </div>
             </div>

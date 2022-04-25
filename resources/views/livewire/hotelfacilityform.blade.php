@@ -49,7 +49,7 @@
                         <div class="spinner-border" role="status">
                             <span class="sr-only"></span>
                         </div>
-                        {{ $update ? 'Updating Existing Room' : 'Creating Room...' }}
+                        {{ $update ? 'Updating existing hotel facility...' : 'Creating new hotel facility...' }}
                     </div>
                 </div>
             </div>
