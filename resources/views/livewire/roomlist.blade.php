@@ -9,8 +9,9 @@
                 <label>Room Type</label>
                 <select wire:model="room_type" class="form-control">
                     <option value=""></option>
-                    <option value="superior">Superior</option>
-                    <option value="deluxe">Deluxe</option>
+                    @foreach ($types as $data)
+                        <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
