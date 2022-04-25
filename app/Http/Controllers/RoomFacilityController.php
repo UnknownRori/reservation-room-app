@@ -16,7 +16,7 @@ class RoomFacilityController extends Controller
      */
     public function index()
     {
-        return view('rooms.facility.index');
+        return view('roomfacility.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class RoomFacilityController extends Controller
      */
     public function create($roomtype)
     {
-        return view('rooms.facility.form', [
+        return view('roomfacility.form', [
             // 'roomtype' => RoomType::where('name', $roomtype)->first()
             'roomtype' => RoomType::all()
         ]);
@@ -62,7 +62,7 @@ class RoomFacilityController extends Controller
      */
     public function edit($roomFacility)
     {
-        return view('rooms.facility.form', [
+        return view('roomfacility.form', [
             'roomtype' => RoomType::all(),
             'facility' => RoomFacility::findOrFail($roomFacility)
         ]);
