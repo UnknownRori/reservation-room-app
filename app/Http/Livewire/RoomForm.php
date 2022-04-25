@@ -45,17 +45,17 @@ class RoomForm extends Component
             $room = Room::findorFail($this->room_id);
             $room->fill($property);
             if ($room->save()) {
-                session()->flash('msg', ['success', 'Room update success']);
+                session()->flash('msg', ['success', 'Room successfully updated!']);
                 return redirect()->route('admin.rooms.index');
             } else {
-                session()->flash('message', ['danger', 'Room update failed!']);
+                session()->flash('message', ['danger', 'Room failed to update!']);
             }
         } else {
             if (Room::create($property)) {
-                session()->flash('msg', ['success', 'Room creation success']);
+                session()->flash('msg', ['success', 'Room creation successfully!']);
                 return redirect()->route('admin.rooms.index');
             } else {
-                session()->flash('message', ['danger', 'Room creation failed!']);
+                session()->flash('message', ['danger', 'Room failed to create!']);
             }
         }
     }

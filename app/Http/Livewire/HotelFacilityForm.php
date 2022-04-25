@@ -28,17 +28,17 @@ class Hotelfacilityform extends Component
             $room = HotelFacility::findorFail($this->room_id);
             $room->fill($property);
             if ($room->save()) {
-                session()->flash('msg', ['success', 'Room update success']);
-                return redirect()->route('admin.rooms.index');
+                session()->flash('msg', ['success', 'Hotel facility successfully updated!']);
+                return redirect()->route('admin.facility.index');
             } else {
-                session()->flash('message', ['danger', 'Room update failed!']);
+                session()->flash('message', ['danger', 'Hotel facility failed to update!']);
             }
         } else {
             if (HotelFacility::create($property)) {
-                session()->flash('msg', ['success', 'Room creation success']);
-                return redirect()->route('admin.rooms.index');
+                session()->flash('msg', ['success', 'Hotel facility successfully created!']);
+                return redirect()->route('admin.facility.index');
             } else {
-                session()->flash('message', ['danger', 'Room creation failed!']);
+                session()->flash('message', ['danger', 'Hotel facility failed to create!']);
             }
         }
     }

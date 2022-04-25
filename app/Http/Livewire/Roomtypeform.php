@@ -38,17 +38,17 @@ class Roomtypeform extends Component
             $room = RoomType::findorFail($this->type_id);
             $room->fill($property);
             if ($room->save()) {
-                session()->flash('msg', ['success', 'Room update success']);
-                return redirect()->route('admin.rooms.index');
+                session()->flash('msg', ['success', 'Room type successfully updated!']);
+                return redirect()->route('admin.roomtype.index');
             } else {
-                session()->flash('message', ['danger', 'Room update failed!']);
+                session()->flash('message', ['danger', 'Room  Type failed to update!']);
             }
         } else {
             if (RoomType::create($property)) {
-                session()->flash('msg', ['success', 'Room creation success']);
-                return redirect()->route('admin.rooms.index');
+                session()->flash('msg', ['success', 'Room Type successfully created!']);
+                return redirect()->route('admin.roomtype.index');
             } else {
-                session()->flash('message', ['danger', 'Room creation failed!']);
+                session()->flash('message', ['danger', 'Room type failed to create!']);
             }
         }
     }

@@ -43,18 +43,18 @@ class Roomfacilityform extends Component
             $Facility = RoomFacility::findorFail($this->roomfacility_id);
             $Facility->fill($property);
             if ($Facility->save()) {
-                session()->flash('msg', ['success', 'Room Facility update success']);
+                session()->flash('msg', ['success', 'Room facility successfully updated!']);
                 return redirect()->route('admin.room.facility.index');
             } else {
-                session()->flash('message', ['danger', 'Room Facility update failed!']);
+                session()->flash('message', ['danger', 'Room facility failed to update!']);
             }
         } else {
             $property['room_type_id'] = $this->room_type_id;
             if (RoomFacility::create($property)) {
-                session()->flash('msg', ['success', 'Room Facility creation success']);
+                session()->flash('msg', ['success', 'Room facility successfully created!']);
                 return redirect()->route('admin.room.facility.index');
             } else {
-                session()->flash('message', ['danger', 'Room Facility creation failed!']);
+                session()->flash('message', ['danger', 'Room facility failed to create!']);
             }
         }
     }
