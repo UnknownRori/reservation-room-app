@@ -21,7 +21,7 @@ class Roomfacilitylist extends Component
     public function render()
     {
         return view('livewire.roomfacilitylist', [
-            'facility' => RoomFacility::where('name', 'LIKE', "%{$this->name}%")->paginate(10)
+            'facility' => RoomFacility::with('RoomType')->where('name', 'LIKE', "%{$this->name}%")->paginate(10)
         ]);
     }
 }

@@ -19,6 +19,6 @@ class RoomFacility extends Model
 
     public function RoomType()
     {
-        $this->belongsTo(RoomType::class, 'room_type_id');
+        return $this->belongsTo(RoomType::class, 'room_type_id');
     }
 }

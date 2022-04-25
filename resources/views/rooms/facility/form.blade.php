@@ -7,9 +7,9 @@
 @section('content')
     <div class="container mt-2">
         @if (isset($facility))
-            @livewire('roomfacilityform', ['roomfacility' => $facility])
+            @livewire('roomfacilityform', ['roomtype' => $roomtype, 'roomfacility' => $facility])
         @else
-            @livewire('roomfacilityform', ['room' => $room])
+            @livewire('roomfacilityform', ['roomtype' => $roomtype])
         @endif
     </div>
 @endsection

@@ -12,6 +12,7 @@
                 <td>Photo</td>
                 <td>Name</td>
                 <td>Description</td>
+                <td>Type</td>
                 <td>Action</td>
             </tr>
             @foreach ($facility as $data)
@@ -21,13 +22,16 @@
                     </td>
                     <td>
                         <a href="{{ $data->img ? Storage::url($data->img) : '#' }}"
-                            title="Image URI">{{ $data->no_room }}</a>
+                            title="Image URI">{{ $data->name }}</a>
                     </td>
                     <td>
                         {{ $data->name }}
                     </td>
                     <td>
                         {{ $data->description }}
+                    </td>
+                    <td>
+                        {{ $data->RoomType->name }}
                     </td>
                     <td>
                         <div class="dropdown">

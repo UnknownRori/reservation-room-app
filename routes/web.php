@@ -54,7 +54,7 @@ Route::middleware('auth.admin')->group(function () {
         Route::get('/rooms/{room:no_room}', [RoomController::class, 'edit'])->name('admin.rooms.edit');
         Route::delete('/rooms/{room:no_room}', [RoomController::class, 'destroy'])->name('admin.rooms.destroy');
 
-        Route::get('/rooms/{room:no_room}/facility/create', [RoomFacilityController::class, 'create'])->name('admin.room.facility.create');
+        Route::get('/type/{roomtype:name}/facility/create', [RoomFacilityController::class, 'create'])->name('admin.room.facility.create');
         Route::get('/facility', [RoomFacilityController::class, 'index'])->name('admin.room.facility.index');
         Route::get('/facilities/{id}/edit', [RoomFacilityController::class, 'edit'])->name('admin.room.facility.edit');
         Route::post('/facilities/{id}/delete', [RoomFacilityController::class, 'destroy'])->name('admin.room.facility.destroy');

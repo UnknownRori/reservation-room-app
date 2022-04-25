@@ -10,10 +10,11 @@ use Livewire\WithFileUploads;
 class Roomfacilityform extends Component
 {
     use WithFileUploads;
-    public $roomfacility_id, $room_id, $name, $description, $img, $update;
+    public $roomfacility_id, $room_type_id, $name, $description, $img, $update;
 
     protected $rules = [
         'name' => ['required', 'string'],
+        'room_type_id' => ['required', 'int'],
         'description' => ['required', 'string'],
         'img' => ['required', 'image'],
     ];
@@ -23,7 +24,7 @@ class Roomfacilityform extends Component
         $this->validateOnly($propertyName);
     }
 
-    public function mount($room = null, $roomfacility = null)
+    public function mount($roomtype = null, $roomfacility = null)
     {
         if (!is_null($roomfacility)) {
             $this->roomfacility_id = $roomfacility->id;
@@ -31,9 +32,8 @@ class Roomfacilityform extends Component
             $this->name = $roomfacility->name;
             $this->description = $roomfacility->description;
             $this->update = true;
-        } else {
-            $this->room_id = $room->id;
         }
+        $this->roomtype = $roomtype;
     }
 
     public function update()
@@ -49,7 +49,7 @@ class Roomfacilityform extends Component
                 session()->flash('message', ['danger', 'Room Facility update failed!']);
             }
         } else {
-            $property['room_id'] = $this->room_id;
+            $property['room_type_id'] = $this->room_type_id;
             if (RoomFacility::create($property)) {
                 session()->flash('msg', ['success', 'Room Facility creation success']);
                 return redirect()->route('admin.room.facility.index');

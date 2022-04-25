@@ -24,6 +24,6 @@ class RoomType extends Model
 
     public function RoomFacility()
     {
-        return $this->hasMany(Room::class, 'room_type_id');
+        return $this->hasMany(RoomFacility::class, 'room_type_id');
     }
 }

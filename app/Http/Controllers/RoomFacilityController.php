@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use App\Models\RoomFacility;
+use App\Models\RoomType;
 use Illuminate\Http\Request;
 
 class RoomFacilityController extends Controller
@@ -23,10 +24,11 @@ class RoomFacilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($room)
+    public function create($roomtype)
     {
         return view('rooms.facility.form', [
-            'room' => Room::where('no_room', $room)->first()
+            // 'roomtype' => RoomType::where('name', $roomtype)->first()
+            'roomtype' => RoomType::all()
         ]);
     }
 
@@ -61,6 +63,7 @@ class RoomFacilityController extends Controller
     public function edit($roomFacility)
     {
         return view('rooms.facility.form', [
+            'roomtype' => RoomType::all(),
             'facility' => RoomFacility::findOrFail($roomFacility)
         ]);
     }
