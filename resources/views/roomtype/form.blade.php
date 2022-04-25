@@ -5,5 +5,11 @@
     @section('title', 'Create new room type')
 @endif
 @section('content')
-    Hello World
+    <div class="container">
+        @if (isset($roomtype))
+            @livewire('roomtypeform', [$roomtype])
+        @else
+            @livewire('roomtypeform')
+        @endif
+    </div>
 @endsection

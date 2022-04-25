@@ -24,7 +24,7 @@ class RoomTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('roomtype.form');
     }
 
     /**
@@ -55,9 +55,11 @@ class RoomTypeController extends Controller
      * @param  \App\Models\RoomType  $roomType
      * @return \Illuminate\Http\Response
      */
-    public function edit(RoomType $roomType)
+    public function edit($roomType)
     {
-        //
+        return view('roomtype.form', [
+            'roomtype' => RoomType::find($roomType)
+        ]);
     }
 
     /**
@@ -78,8 +80,9 @@ class RoomTypeController extends Controller
      * @param  \App\Models\RoomType  $roomType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RoomType $roomType)
+    public function destroy($id)
     {
-        //
+        if (RoomType::destroy($id)) return redirect()->back()->with('msg', ['success', 'Room Facility deletion success!']);;
+        return redirect()->back()->with('msg', ['danger', 'Room Facility deletion failed!']);
     }
 }
