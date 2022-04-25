@@ -1,10 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container">
-        <a href="#app" class="navbar-brand">
-            <h4 class="text-warning">
-                HotelCompany
-            </h4>
-        </a>
+        <x-company-logo></x-company-logo>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,59 +27,9 @@
                         Support</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
-                @auth
-                    <li class="dropdown nav-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            {{ Auth::user()->name }}
-                        </a>
-                        <div class="dropdown-menu">
-                            @if (Auth::user()->roles == 'admin')
-                                <a href="{{ route('admin.rooms.index') }}"
-                                    class="dropdown-item {{ $title == 'Rooms List' ? 'active' : '' }}">Rooms List</a>
-                                <a href="{{ route('admin.rooms.create') }}"
-                                    class="dropdown-item {{ $title == 'Create new room' ? 'active' : '' }}">Create
-                                    Room</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('admin.room.facility.index') }}"
-                                    class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Rooms
-                                    Facility List</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('admin.roomtype.index') }}"
-                                    class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Room
-                                    Type List</a>
-                                <a href="{{ route('admin.roomtype.create') }}"
-                                    class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Create
-                                    Room Type</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('admin.facility.index') }}"
-                                    class="dropdown-item {{ $title == 'Hotel Facility List' ? 'active' : '' }}">Hotel
-                                    Facility List</a>
-                                <a href="{{ route('admin.facility.create') }}"
-                                    class="dropdown-item {{ $title == 'Create new hotel facility' ? 'active' : '' }}">Create
-                                    Hotel Facility</a>
-                                <div class="dropdown-divider"></div>
-                            @elseif (Auth::user()->roles == 'receptionist')
-                                <a href="{{ route('receptionist.orders.index') }}"
-                                    class="dropdown-item {{ $title == 'Orders List' ? 'active' : '' }}">Orders List</a>
-                                <a href="{{ route('receptionist.rooms.index') }}"
-                                    class="dropdown-item {{ $title == 'Rooms List' ? 'active' : '' }}">Rooms List</a>
-                                <div class="dropdown-divider"></div>
-                            @endif
-                            <form action="{{ route('logout') }}" method="post">
-                                @csrf
-                                <input type="submit" value="Logout" class="dropdown-item">
-                            </form>
-                        </div>
-                    </li>
-                @endauth
-                @guest
-                    <a href="{{ route('login') }}"
-                        class="btn btn{{ $title == 'Login' ? '' : '-outline' }}-secondary mx-2">Login</a>
-                    <a href="{{ route('register') }}"
-                        class="btn btn{{ $title == 'Create new user' ? '' : '-outline' }}-secondary mx-2">Sign up</a>
-                @endguest
-            </ul>
+            <x-authentication-card>
+                <x-slot name="title">{{ $title }}</x-slot>
+            </x-authentication-card>
         </div>
     </div>
 </nav>
