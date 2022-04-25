@@ -13,6 +13,7 @@
                 <td>ID</td>
                 <td>Name</td>
                 <td>Total Room</td>
+                <td>Total Facility</td>
                 <td>Action</td>
             </tr>
             @foreach ($types as $data)
@@ -25,6 +26,9 @@
                     </td>
                     <td>
                         {{ $data->room_count }}
+                    </td>
+                    <td>
+                        {{ $data->room_facility_count }}
                     </td>
                     <td>
                         <div class="dropdown">

@@ -22,7 +22,7 @@ class Roomtypelist extends Component
     public function render()
     {
         return view('livewire.roomtypelist', [
-            'types' => RoomType::withCount('Room')->where('name', 'LIKE', "%{$this->search}%")->paginate(10)
+            'types' => RoomType::withCount("RoomFacility")->withCount('Room')->where('name', 'LIKE', "%{$this->search}%")->paginate(10)
         ]);
     }
 }
