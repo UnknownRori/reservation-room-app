@@ -30,9 +30,8 @@ Route::middleware('auth.no')->group(function () {
     });
 });
 
-Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
-Route::get('/rooms/{room:no_room}', [RoomController::class, 'show'])->name('rooms.show');
-// Route::get('/rooms/{room:no_room}/{roomfacility:name}', [RoomFacilityController::class, 'show'])->name('rooms.facility.show');
+Route::get('/room-type', [RoomTypeController::class, 'index'])->name('rooms.index');
+Route::get('/room-type/{RoomType:name}', [RoomTypeController::class, 'show'])->name('rooms.show');
 Route::get('/facilities', [HotelFacilityController::class, 'index'])->name('hotelfacility.index');
 // Route::get('/facilities/{hotelfacility:name}', [HotelFacilityController::class, 'show'])->name('hotelfacility.show');
 
@@ -65,9 +64,9 @@ Route::middleware('auth.admin')->group(function () {
         Route::get('/hotel-facilities/{hotelfacility:id}/edit', [HotelFacilityController::class, 'edit'])->name('admin.facility.edit');
         Route::delete('/hotel-facilities/{hotelfacility:id}/delete', [HotelFacilityController::class, 'destroy'])->name('admin.facility.destroy');
 
-        Route::get('/roomtype', [RoomTypeController::class, 'index'])->name('admin.roomtype.index');
-        Route::get('/roomtype/create', [RoomTypeController::class, 'create'])->name('admin.roomtype.create');
-        Route::get('/roomtype/{RoomType:name}/edit', [RoomController::class, 'edit'])->name('admin.roomtype.edit');
-        Route::delete('/roomtype/{RoomType:name}/delete', [RoomController::class, 'destroy'])->name('admin.roomtype.destroy');
+        Route::get('/room-type', [RoomTypeController::class, 'index'])->name('admin.roomtype.index');
+        Route::get('/room-type/create', [RoomTypeController::class, 'create'])->name('admin.roomtype.create');
+        Route::get('/room-type/{RoomType:name}/edit', [RoomController::class, 'edit'])->name('admin.roomtype.edit');
+        Route::delete('/room-type/{RoomType:name}/delete', [RoomController::class, 'destroy'])->name('admin.roomtype.destroy');
     });
 });
