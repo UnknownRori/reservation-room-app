@@ -86,9 +86,9 @@ class RoomFacilityController extends Controller
      * @param  \App\Models\RoomFacility  $roomFacility
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RoomFacility $roomFacility)
+    public function destroy($id)
     {
-        if (Room::destroy($roomFacility->id)) return redirect()->back()->with('msg', ['success', 'Room Facility deletion success!']);
+        if (RoomFacility::destroy($id)) return redirect()->back()->with('msg', ['success', 'Room Facility deletion success!']);
         return redirect()->back()->with('msg', ['danger', 'Room Facility deletion failed!']);
     }
 }
