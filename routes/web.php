@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HotelFacilityController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\RoomController;
@@ -42,6 +43,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth.receptionist')->group(function () {
     Route::prefix('receptionist')->group(function () {
+        Route::get('/dashboard', DashboardController::class)->name('receptionist.dashboard');
+
         Route::get('/rooms', [RoomController::class, 'index'])->name('receptionist.rooms.index');
         Route::get('/orders', [OrdersController::class, 'index'])->name('receptionist.orders.index');
     });
@@ -49,6 +52,8 @@ Route::middleware('auth.receptionist')->group(function () {
 
 Route::middleware('auth.admin')->group(function () {
     Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
+
         Route::get('/rooms', [RoomController::class, 'index'])->name('admin.rooms.index');
         Route::get('/rooms/create', [RoomController::class, 'create'])->name('admin.rooms.create');
         Route::get('/rooms/{room:no_room}', [RoomController::class, 'edit'])->name('admin.rooms.edit');
