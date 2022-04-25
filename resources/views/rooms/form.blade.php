@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('Layouts.dashboard')
 @if (isset($room))
     @section('title', "Editing {$room->no_room}")
 @else

@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('Layouts.dashboard')
 @section('title', 'Room Type List')
 @section('content')
     <div class="container">
