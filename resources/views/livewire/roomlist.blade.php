@@ -43,9 +43,6 @@
                                     <a href="{{ route('admin.rooms.edit', $data->no_room) }}"
                                         class="dropdown-item">Edit
                                         Room</a>
-                                    <a href="{{ route('admin.room.facility.create', $data->no_room) }}"
-                                        class="dropdown-item">Add
-                                        Facility</a>
                                     <form action="{{ route('admin.rooms.destroy', $data->no_room) }}" method="post">
                                         @csrf
                                         @method('delete')
