@@ -8,10 +8,10 @@
         <table class="table-hover table">
             <tr>
                 <td>ID</td>
-                <td>Room Type</td>
                 <td>Image</td>
                 <td>Name</td>
                 <td>Description</td>
+                <td>Action</td>
             </tr>
             @foreach ($facilities as $data)
                 <tr>
@@ -20,13 +20,25 @@
                         <a href="{{ Storage::url($data->img) }}">{{ $data->name }}</a>
                     </td>
                     <td>
-                        {{ Str::ucfirst($data->RoomType->name) }}
-                    </td>
-                    <td>
                         {{ $data->name }}
                     </td>
                     <td>
                         {{ $data->description }}
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">
+                                Action
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('admin.facility.edit', $data->id) }}" class="dropdown-item">Edit</a>
+                                <form action="{{ route('admin.facility.edit', $data->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" value="Delete" class="dropdown-item">
+                                </form>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach

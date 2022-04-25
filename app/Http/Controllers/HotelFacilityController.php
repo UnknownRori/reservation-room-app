@@ -55,10 +55,10 @@ class HotelFacilityController extends Controller
      * @param  \App\Models\HotelFacility  $hotelFacility
      * @return \Illuminate\Http\Response
      */
-    public function edit(HotelFacility $hotelFacility)
+    public function edit($hotelFacility)
     {
         return view('facilities.form', [
-            'facilities' => $hotelFacility
+            'facility' => HotelFacility::find($hotelFacility)
         ]);
     }
 

@@ -55,11 +55,13 @@ Route::middleware('auth.admin')->group(function () {
         Route::delete('/rooms/{room:no_room}', [RoomController::class, 'destroy'])->name('admin.rooms.destroy');
 
         Route::get('/type/{roomtype:name}/facility/create', [RoomFacilityController::class, 'create'])->name('admin.room.facility.create');
-        Route::get('/facility', [RoomFacilityController::class, 'index'])->name('admin.room.facility.index');
-        Route::get('/facilities/{id}/edit', [RoomFacilityController::class, 'edit'])->name('admin.room.facility.edit');
-        Route::post('/facilities/{id}/delete', [RoomFacilityController::class, 'destroy'])->name('admin.room.facility.destroy');
+        Route::get('/room/facilities', [RoomFacilityController::class, 'index'])->name('admin.room.facility.index');
+        Route::get('/room/facilities/{id}/edit', [RoomFacilityController::class, 'edit'])->name('admin.room.facility.edit');
+        Route::post('/room/facilities/{id}/delete', [RoomFacilityController::class, 'destroy'])->name('admin.room.facility.destroy');
 
-        Route::get('/facilities', [HotelFacilityController::class, 'index'])->name('admin.facility.index');
-        Route::get('/facilities/create', [HotelFacilityController::class, 'create'])->name('admin.facility.create');
+        Route::get('/hotel-facilities', [HotelFacilityController::class, 'index'])->name('admin.facility.index');
+        Route::get('/hotel-facilities/create', [HotelFacilityController::class, 'create'])->name('admin.facility.create');
+        Route::get('/hotel-facilities/{hotelfacility:id}/edit', [HotelFacilityController::class, 'edit'])->name('admin.facility.edit');
+        Route::post('/hotel-facilities/{hotelfacility:id}/delete', [HotelFacilityController::class, 'destroy'])->name('admin.facility.destroy');
     });
 });
