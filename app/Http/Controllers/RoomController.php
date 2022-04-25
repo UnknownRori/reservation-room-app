@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\RoomType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,9 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view('rooms.form');
+        return view('rooms.form', [
+            'roomtype' => RoomType::all()
+        ]);
     }
 
     /**
@@ -61,7 +64,8 @@ class RoomController extends Controller
     public function edit(Room $room)
     {
         return view('rooms.form', [
-            'room' => $room
+            'room' => $room,
+            'roomtype' => RoomType::all()
         ]);
     }
 

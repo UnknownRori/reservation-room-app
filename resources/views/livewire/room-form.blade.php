@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center min-vh-100">
-    <div class="col-md-6 bg-light m-auto shadow">
+    <div class="col-md-8 bg-light m-auto shadow">
         <form wire:submit.prevent="update" class="p-3">
             @csrf
             <div class="form-group">
@@ -12,28 +12,12 @@
             </div>
             <div class="form-group">
                 <label>Room Type</label>
-                <select name="type" wire:model="type">
-                    <option value="{{ $type }}">{{ Str::ucfirst($type) }}</option>
-                    @if ($type != 'superior')
-                        <option value="superior">Superior</option>
-                    @endif
-                    @if ($type != 'deluxe')
-                        <option value="deluxe">Deluxe</option>
-                    @endif
+                <select name="type" wire:model="room_type_id">
+                    @foreach ($roomtype as $data)
+                        <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
+                    @endforeach
                 </select>
                 @error('type')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label>Photo</label>
-                <input wire:model="img" type="file" name="img" class="form-control">
-                @if ($img)
-                    <div class="container my-2 text-center">
-                        <img class="img-fluid" src="{{ $img->temporaryUrl() }}" width="300" height="300">
-                    </div>
-                @endif
-                @error('img')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
