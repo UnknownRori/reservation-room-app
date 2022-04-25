@@ -24,11 +24,10 @@ class RoomFacilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($roomtype)
+    public function create()
     {
         return view('roomfacility.form', [
-            // 'roomtype' => RoomType::where('name', $roomtype)->first()
-            'roomtype' => RoomType::all()
+            'roomtype' => RoomType::all(),
         ]);
     }
 

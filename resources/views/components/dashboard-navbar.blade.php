@@ -30,6 +30,9 @@
                         <a href="{{ route('admin.room.facility.index') }}"
                             class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Rooms
                             Facility List</a>
+                        <a href="{{ route('admin.room.facility.create') }}"
+                            class="dropdown-item {{ $title == 'Create new room facility' ? 'active' : '' }}">Create
+                            Room Facility</a>
                     </div>
                 </li>
                 <li class="dropdown nav-item">
