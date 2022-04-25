@@ -41,10 +41,9 @@
                             <div class="dropdown-menu">
                                 <a href="{{ route('rooms.show', $data->no_room) }}" class="dropdown-item">Show</a>
                                 @if (Auth::user()->roles == 'admin')
-                                    <a href="{{ route('admin.rooms.edit', $data->no_room) }}"
-                                        class="dropdown-item">Edit
+                                    <a href="{{ route('admin.rooms.edit', $data->id) }}" class="dropdown-item">Edit
                                         Room</a>
-                                    <form action="{{ route('admin.rooms.destroy', $data->no_room) }}" method="post">
+                                    <form action="{{ route('admin.rooms.destroy', $data->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <input type="submit" value="Delete" class="dropdown-item">
