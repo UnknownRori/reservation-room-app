@@ -5,10 +5,11 @@ namespace App\Http\Livewire;
 use App\Models\Room;
 use App\Models\RoomFacility;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Roomfacilitylist extends Component
 {
-
+    use WithPagination;
     public $name = "";
 
     protected $paginationTheme = 'bootstrap';
