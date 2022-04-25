@@ -23,7 +23,7 @@ class Roomlist extends Component
     public function render()
     {
         return view('livewire.roomlist', [
-            'rooms' => Room::where('no_room', 'LIKE', "%{$this->no_room}%")->where('type', 'LIKE', "%{$this->room_type}%")->paginate(10)
+            'rooms' => Room::with("RoomType")->where('no_room', 'LIKE', "%{$this->no_room}%")->paginate(10)
         ]);
     }
 }

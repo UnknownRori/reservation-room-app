@@ -35,7 +35,7 @@
                         {{ $data->no_room }}
                     </td>
                     <td>
-                        {{ Str::ucfirst($data->type) }}
+                        {{ Str::ucfirst($data->RoomType->name) }}
                     </td>
                     <td>
                         <div class="dropdown">

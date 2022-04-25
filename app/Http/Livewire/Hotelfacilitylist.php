@@ -22,7 +22,7 @@ class Hotelfacilitylist extends Component
     public function render()
     {
         return view('livewire.hotelfacilitylist', [
-            'facilities' => HotelFacility::orWhere('name', 'LIKE', "%{$this->search}%")->orwhere('id', 'LIKE', "%{$this->search}%")->paginate(10)
+            'facilities' => HotelFacility::with('RoomType')->orWhere('name', 'LIKE', "%{$this->search}%")->orwhere('id', 'LIKE', "%{$this->search}%")->paginate(10)
         ]);
     }
 }

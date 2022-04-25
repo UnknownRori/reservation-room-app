@@ -8,6 +8,7 @@
         <table class="table-hover table">
             <tr>
                 <td>ID</td>
+                <td>Room Type</td>
                 <td>Image</td>
                 <td>Name</td>
                 <td>Description</td>
@@ -17,6 +18,9 @@
                     <td>{{ $data->id }}</td>
                     <td>
                         <a href="{{ Storage::url($data->img) }}">{{ $data->name }}</a>
+                    </td>
+                    <td>
+                        {{ Str::ucfirst($data->RoomType->name) }}
                     </td>
                     <td>
                         {{ $data->name }}
