@@ -17,7 +17,6 @@
         <table class="table-hover table-light table">
             <tr>
                 <td>ID</td>
-                <td>Photo</td>
                 <td>Room Number</td>
                 <td>Type</td>
                 <td>Action</td>
@@ -26,10 +25,6 @@
                 <tr>
                     <td>
                         {{ $data->id }}
-                    </td>
-                    <td>
-                        <a href="{{ $data->img ? Storage::url($data->img) : '#' }}"
-                            title="Image URI">{{ $data->no_room }}</a>
                     </td>
                     <td>
                         {{ $data->no_room }}
