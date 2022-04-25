@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Room>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RoomType>
  */
-class RoomFactory extends Factory
+class RoomTypeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class RoomFactory extends Factory
     public function definition()
     {
         return [
-            'no_room' => $this->faker->numberBetween(1, 5000),
+            'name' => $this->faker->sentence(1)
         ];
     }
 }

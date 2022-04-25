@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Room;
 use App\Models\RoomFacility;
+use App\Models\RoomType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +16,6 @@ class RoomFacilitySeeder extends Seeder
      */
     public function run()
     {
-        Room::factory(2)->has(RoomFacility::factory(2))->create();
+        RoomType::factory(2)->has(RoomFacility::factory(2))->create();
     }
 }

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('room_facilities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('room_id');
-            $table->foreign('room_id')->references('id')->on('rooms')->cascadeOnDelete();
+            $table->unsignedBigInteger('room_type_id');
+            $table->foreign('room_type_id')->references('id')->on('room_types')->cascadeOnDelete();
             $table->string('name');
             $table->text('description');
             $table->string('img')->nullable();

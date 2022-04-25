@@ -17,8 +17,8 @@ class RoomFacility extends Model
         $this->attributes['img'] = Storage::putFile('/public/roomfacility', $value);
     }
 
-    public function Room()
+    public function RoomType()
     {
-        $this->belongsTo(Room::class, 'room_id');
+        $this->belongsTo(RoomType::class, 'room_type_id');
     }
 }
