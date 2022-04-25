@@ -10,8 +10,8 @@
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link {{ $title == 'Home' ? 'active' : '' }}">Home</a>
                 </li>
-                <li class="dropdown nav-item" data-toggle="dropdown">
-                    <a href="#" class="dropdown-toggle nav-link">
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         Room
                     </a>
                     <div class="dropdown-menu">
