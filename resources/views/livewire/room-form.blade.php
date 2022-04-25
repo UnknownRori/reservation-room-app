@@ -17,7 +17,7 @@
                         <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
                     @endforeach
                 </select>
-                @error('type')
+                @error('room_type_id')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
