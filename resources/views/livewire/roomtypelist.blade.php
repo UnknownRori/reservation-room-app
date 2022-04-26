@@ -13,6 +13,7 @@
         <table class="table-hover table-light table">
             <tr>
                 <td>ID</td>
+                <td>Photo</td>
                 <td>Name</td>
                 <td>Total Room</td>
                 <td>Total Facility</td>
@@ -22,6 +23,10 @@
                 <tr>
                     <td>
                         {{ $data->id }}
+                    </td>
+                    <td>
+                        <a href="{{ $data->img ? Storage::url($data->img) : '#' }}"
+                            title="Image URI">{{ $data->name }}</a>
                     </td>
                     <td>
                         {{ $data->name }}
@@ -42,7 +47,7 @@
                                 @if (Auth::user()->roles == 'admin')
                                     <a href="{{ route('admin.roomtype.edit', $data->id) }}"
                                         class="dropdown-item">Edit
-                                        Room</a>
+                                        Type</a>
                                     <form action="{{ route('admin.roomtype.destroy', $data->id) }}" method="post">
                                         @csrf
                                         @method('delete')
