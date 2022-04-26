@@ -5,7 +5,9 @@
                 <input type="text" wire:model="search" placeholder="Enter Room Type" class="form-control">
             </div>
             <div class="col-md-6 text-right">
-                <a href="{{ route('admin.roomtype.create') }}" class="btn btn-primary">Create new Type</a>
+                <x-create-button>
+                    <x-slot name="route">{{ route('admin.roomtype.create') }}</x-slot>
+                </x-create-button>
             </div>
         </div>
         <table class="table-hover table-light table">

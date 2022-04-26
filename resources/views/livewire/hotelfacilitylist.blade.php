@@ -1,8 +1,13 @@
 <div>
     <div class="bg-light mt-3 p-3 shadow">
-        <div class="container my-2">
-            <div class="col-md-5 text-right">
+        <div class="d-flex container my-2">
+            <div class="col-md-10 text-right">
                 <input type="text" wire:model="search" placeholder="Enter Search" class="form-control">
+            </div>
+            <div class="col-md-2 text-right">
+                <x-create-button>
+                    <x-slot name="route">{{ route('admin.facility.create') }}</x-slot>
+                </x-create-button>
             </div>
         </div>
         <table class="table-hover table">

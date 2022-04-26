@@ -1,18 +1,21 @@
 <div>
     <div class="bg-light p-3 shadow">
         <div class="d-flex my-2">
-            <div class="col-md-6">
-                <label>Room Number</label>
+            <div class="col-md-5">
                 <input type="text" wire:model="no_room" placeholder="Enter Search Room Number" class="form-control">
             </div>
-            <div class="col-md-6">
-                <label>Room Type</label>
+            <div class="col-md-5">
                 <select wire:model="room_type" class="form-control">
                     <option value=""></option>
                     @foreach ($types as $data)
                         <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="col-md-2 text-right">
+                <x-create-button>
+                    <x-slot name="route">{{ route('admin.rooms.create') }}</x-slot>
+                </x-create-button>
             </div>
         </div>
         <table class="table-hover table-light table">
