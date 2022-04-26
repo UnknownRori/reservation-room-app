@@ -41,7 +41,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <a href="{{ route('admin.roomtype.index') }}"
-                            class="dropdown-item {{ $title == 'Rooms Facility List' ? 'active' : '' }}">Room
+                            class="dropdown-item {{ $title == 'Room Type List' ? 'active' : '' }}">Room
                             Type List</a>
                         <a href="{{ route('admin.roomtype.create') }}"
                             class="dropdown-item {{ $title == 'Create new room type' ? 'active' : '' }}">Create
