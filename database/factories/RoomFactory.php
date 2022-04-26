@@ -18,6 +18,7 @@ class RoomFactory extends Factory
     {
         return [
             'no_room' => $this->faker->numberBetween(1, 5000),
+            'used' => $this->faker->randomElement([false, true]),
         ];
     }
 }
