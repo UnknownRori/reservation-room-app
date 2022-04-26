@@ -78,8 +78,9 @@ class OrdersController extends Controller
      * @param  \App\Models\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orders $orders)
+    public function destroy($id)
     {
-        //
+        if (Orders::destroy($id)) return redirect()->back()->with('msg', ['success', 'Order successfully deleted!']);
+        return redirect()->back()->with('msg', ['danger', 'Order failed to delete!']);
     }
 }

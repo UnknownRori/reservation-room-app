@@ -31,7 +31,19 @@
                         {{ $data->created_at }}
                     </td>
                     <td>
-                        Action
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">
+                                Action
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Check in</a>
+                                <form action="{{ route('receptionist.orders.destroy', $data->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" value="Delete" class="dropdown-item">
+                                </form>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach

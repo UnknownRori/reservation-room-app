@@ -47,6 +47,7 @@ Route::middleware('auth.receptionist')->group(function () {
 
         Route::get('/rooms', [RoomController::class, 'index'])->name('receptionist.rooms.index');
         Route::get('/orders', [OrdersController::class, 'index'])->name('receptionist.orders.index');
+        Route::delete('/orders/{id}', [OrdersController::class, 'destroy'])->name('receptionist.orders.destroy');
     });
 });
 
