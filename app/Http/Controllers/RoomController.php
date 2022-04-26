@@ -92,4 +92,12 @@ class RoomController extends Controller
         if (Room::destroy($room->id)) return redirect()->back()->with('msg', ['success', 'Room deletion success!']);
         return redirect()->back()->with('msg', ['danger', 'Room deletion failed!']);
     }
+
+    public function check($id)
+    {
+        $room = Room::find($id);
+        $room->used = !$room->used;
+        if ($room->save()) return redirect()->back()->with('msg', ['success', 'Room status successfully changed!']);
+        return redirect()->back()->with('msg', ['success', 'Room status failed to change!']);
+    }
 }

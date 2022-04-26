@@ -46,6 +46,9 @@ Route::middleware('auth.receptionist')->group(function () {
         Route::get('/dashboard', DashboardController::class)->name('receptionist.dashboard');
 
         Route::get('/rooms', [RoomController::class, 'index'])->name('receptionist.rooms.index');
+        Route::post('/rooms/{id}/check-in', [RoomController::class, 'check'])->name('receptionist.rooms.checkin');
+        Route::post('/rooms/{id}/check-out', [RoomController::class, 'check'])->name('receptionist.rooms.checkout');
+
         Route::get('/orders', [OrdersController::class, 'index'])->name('receptionist.orders.index');
         Route::delete('/orders/{id}', [OrdersController::class, 'destroy'])->name('receptionist.orders.destroy');
     });

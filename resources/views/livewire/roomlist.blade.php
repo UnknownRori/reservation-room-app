@@ -1,10 +1,10 @@
 <div>
     <div class="bg-light p-3 shadow">
         <div class="d-flex my-2">
-            <div class="col-md-5">
+            <div class="col-md">
                 <input type="text" wire:model="no_room" placeholder="Enter Search Room Number" class="form-control">
             </div>
-            <div class="col-md-5">
+            <div class="col-md">
                 <select wire:model="room_type" class="form-control">
                     <option value="" hidden selected> -- Select Type -- </option>
                     @foreach ($types as $data)
@@ -12,11 +12,13 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-2 text-right">
-                <x-create-button>
-                    <x-slot name="route">{{ route('admin.rooms.create') }}</x-slot>
-                </x-create-button>
-            </div>
+            @if (Auth::user()->roles == 'admin')
+                <div class="col-md-2 text-right">
+                    <x-create-button>
+                        <x-slot name="route">{{ route('admin.rooms.create') }}</x-slot>
+                    </x-create-button>
+                </div>
+            @endif
         </div>
         <table class="table-hover table-light table">
             <tr>
@@ -51,6 +53,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a href="{{ route('rooms.show', $data->no_room) }}" class="dropdown-item">Show</a>
+                                <div class="dropdown-divider"></div>
                                 @if (Auth::user()->roles == 'admin')
                                     <a href="{{ route('admin.rooms.edit', $data->id) }}" class="dropdown-item">Edit
                                         Room</a>
@@ -59,6 +62,20 @@
                                         @method('delete')
                                         <input type="submit" value="Delete" class="dropdown-item">
                                     </form>
+                                @elseif (Auth::user()->roles == 'receptionist')
+                                    @if ($data->used)
+                                        <form action="{{ route('receptionist.rooms.checkout', $data->id) }}"
+                                            method="post">
+                                            @csrf
+                                            <input type="submit" value="Check out" class="dropdown-item">
+                                        </form>
+                                    @else
+                                        <form action="{{ route('receptionist.rooms.checkin', $data->id) }}"
+                                            method="post">
+                                            @csrf
+                                            <input type="submit" value="Check in" class="dropdown-item">
+                                        </form>
+                                    @endif
                                 @endif
                             </div>
                         </div>
