@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-5">
                 <select wire:model="room_type" class="form-control">
-                    <option value=""></option>
+                    <option value="" hidden selected> -- Select Type -- </option>
                     @foreach ($types as $data)
                         <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
                     @endforeach
@@ -23,6 +23,7 @@
                 <td>ID</td>
                 <td>Room Number</td>
                 <td>Type</td>
+                <td>In Use</td>
                 <td>Action</td>
             </tr>
             @foreach ($rooms as $data)
@@ -35,6 +36,13 @@
                     </td>
                     <td>
                         {{ Str::ucfirst($data->RoomType->name) }}
+                    </td>
+                    <td>
+                        @if ($data->used)
+                            <span class="fas fa-check-circle"></span>
+                        @else
+                            <span class="fas fa-dot-circle"></span>
+                        @endif
                     </td>
                     <td>
                         <div class="dropdown">
