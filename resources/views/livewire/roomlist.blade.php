@@ -6,7 +6,7 @@
             </div>
             <div class="col-md">
                 <select wire:model="room_type" class="form-control">
-                    <option value="" hidden selected> -- Select Type -- </option>
+                    <option value="" selected> -- Select Type -- </option>
                     @foreach ($types as $data)
                         <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
                     @endforeach
