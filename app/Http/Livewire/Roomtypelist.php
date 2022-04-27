@@ -21,8 +21,13 @@ class Roomtypelist extends Component
 
     public function render()
     {
+        $withCount = ["Room as room_used" => function ($query) {
+            $query->where('used', True);
+        }];
+
+        $room = RoomType::withCount($withCount)->withCount("RoomFacility")->withCount('Room')->where('name', 'LIKE', "%{$this->search}%")->paginate(10);
         return view('livewire.roomtypelist', [
-            'types' => RoomType::withCount("RoomFacility")->withCount('Room')->where('name', 'LIKE', "%{$this->search}%")->paginate(10)
+            'types' => $room
         ]);
     }
 }
