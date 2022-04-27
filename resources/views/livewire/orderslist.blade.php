@@ -1,5 +1,21 @@
 <div>
     <div class="bg-light p-3 shadow">
+        <p wire:poll.1000ms>
+            Current Time : {{ Date::now() }}
+        </p>
+        <div class="row">
+            <div class="col-md">
+                <input type="text" wire:model="name" placeholder="Enter Name" class="form-control">
+            </div>
+            <div class="col-md">
+                <select wire:model="room_type" class="form-control">
+                    <option value="" selected> -- Select Type -- </option>
+                    @foreach ($types as $data)
+                        <option value="{{ $data->id }}">{{ Str::ucfirst($data->name) }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
         <table class="table-hover table-light table">
             <tr>
                 <td>ID</td>
