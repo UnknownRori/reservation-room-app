@@ -50,7 +50,9 @@ Route::middleware('auth.receptionist')->group(function () {
         Route::post('/rooms/{id}/check-out', [RoomController::class, 'check'])->name('receptionist.rooms.checkout');
 
         Route::get('/orders', [OrdersController::class, 'index'])->name('receptionist.orders.index');
-        Route::delete('/orders/{id}', [OrdersController::class, 'destroy'])->name('receptionist.orders.destroy');
+        Route::delete('/orders/{id}/delete', [OrdersController::class, 'destroy'])->name('receptionist.orders.destroy');
+        Route::post('/orders/{id}/check_in', [OrdersController::class, 'check_in'])->name('receptionist.orders.checkin');
+        Route::post('/orders/{id}/check_out', [OrdersController::class, 'check_out'])->name('receptionist.orders.checkout');
     });
 });
 

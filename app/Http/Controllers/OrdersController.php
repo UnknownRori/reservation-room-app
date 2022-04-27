@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Orders;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersController extends Controller
 {
@@ -44,9 +45,10 @@ class OrdersController extends Controller
      * @param  \App\Models\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function show(Orders $orders)
+    public function show($user, Orders $orders)
     {
-        //
+        if (Auth::user()->name != $user && Auth::user()->roles != 'receptionist') return redirect()->back()->with('msg', ['warning', 'You are not the owner!']);
+        // Display Orders Data
     }
 
     /**
@@ -82,5 +84,21 @@ class OrdersController extends Controller
     {
         if (Orders::destroy($id)) return redirect()->back()->with('msg', ['success', 'Order successfully deleted!']);
         return redirect()->back()->with('msg', ['danger', 'Order failed to delete!']);
+    }
+
+    public function check_in($id)
+    {
+        $orders = Orders::find($id);
+        $orders->check_in_status = true;
+        if ($orders->save()) return redirect()->back()->with('msg', ['success', 'Check in success!']);
+        return redirect()->back()->with('msg' . ['success', 'Check in failed!']);
+    }
+
+    public function check_out($id)
+    {
+        $orders = Orders::find($id);
+        $orders->check_out_status = true;
+        if ($orders->save()) return redirect()->back()->with('msg', ['success', 'Check out success!']);
+        return redirect()->back()->with('msg' . ['success', 'Check out failed!']);
     }
 }

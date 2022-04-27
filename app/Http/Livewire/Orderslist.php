@@ -20,7 +20,7 @@ class Orderslist extends Component
     public function render()
     {
         return view('livewire.orderslist', [
-            'orders' => Orders::latest()->paginate(10)
+            'orders' => Orders::with('User')->with('RoomType')->latest()->paginate(10)
         ]);
     }
 }
