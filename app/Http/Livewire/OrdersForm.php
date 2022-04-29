@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Orders;
 use App\Models\RoomType;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class OrdersForm extends Component
@@ -23,6 +25,10 @@ class OrdersForm extends Component
 
     public function update()
     {
+        $credentials = $this->validate();
+        $credentials['users_id'] = Auth::user()->id;
+        if (Orders::create($credentials)) session()->flash('message', ['success', 'Room successfully reserved!']);
+        else session()->flash('message', ['danger', 'Room failed to reserve!']);
     }
 
     public function render()

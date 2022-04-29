@@ -10,17 +10,19 @@
             </div>
             <div class="form-group">
                 <label for="">Check in date</label>
-                <input type="date" name="check_in" class="form-control {{ Auth::check() ? '' : 'disabled' }}"
-                    {{ Auth::check() ? '' : 'disabled' }} required>
-                @error('total_room')
+                <input wire:model="check_in" type="date" name="check_in"
+                    class="form-control {{ Auth::check() ? '' : 'disabled' }}" {{ Auth::check() ? '' : 'disabled' }}
+                    required>
+                @error('check_in')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="">Check out date</label>
-                <input type="date" name="check_out" class="form-control {{ Auth::check() ? '' : 'disabled' }}"
-                    {{ Auth::check() ? '' : 'disabled' }} required>
-                @error('total_room')
+                <input wire:model="check_out" type="date" name="check_out"
+                    class="form-control {{ Auth::check() ? '' : 'disabled' }}" {{ Auth::check() ? '' : 'disabled' }}
+                    required>
+                @error('check_out')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -38,7 +40,8 @@
             </div>
             <div class="form-group">
                 <label for="">Total room</label>
-                <input type="number" name="total_room" class="form-control {{ Auth::check() ? '' : 'disabled' }}"
+                <input wire:model="total_room" type="number" name="total_room"
+                    class="form-control {{ Auth::check() ? '' : 'disabled' }}"
                     {{ Auth::check() ? '' : 'disabled' }} required>
                 @error('total_room')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -46,8 +49,8 @@
             </div>
             <div class="form-group">
                 @if (session()->has('message'))
-                    <div class="alert alert-danger">
-                        {{ session('message') }}
+                    <div class="alert alert-{{ session('message')[0] }}">
+                        {{ session('message')[1] }}
                     </div>
                 @endif
                 <div class="row align-content-center items-center text-center">
