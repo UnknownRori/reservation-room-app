@@ -1,7 +1,7 @@
 @extends('Layouts.app')
-@section('title', 'Our Room')
+@section('title', $roomtype->name)
 @section('content')
     <div class="container">
-        @livewire('roomtype')
+        @livewire('roomtypeshow', ['room' => $roomtype])
     </div>
 @endsection

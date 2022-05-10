@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RoomTypeController extends Controller
 {
+
+    public function home()
+    {
+        return view('roomtype.home');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,9 +49,11 @@ class RoomTypeController extends Controller
      * @param  \App\Models\RoomType  $roomType
      * @return \Illuminate\Http\Response
      */
-    public function show(RoomType $roomType)
+    public function show($roomType)
     {
-        //
+        return view('rooms.show', [
+            'roomtype' => RoomType::where('name', $roomType)->first()
+        ]);
     }
 
     /**

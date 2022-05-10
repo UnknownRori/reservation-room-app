@@ -31,7 +31,7 @@
                     </div>
                 @endif
                 <div class="row align-content-center items-center text-center">
-                    <input type="submit" value="Login" class="btn btn-primary">
+                    <input type="submit" value="Register" class="btn btn-primary">
                     <div wire:loading.flex wire:target="update" class="align-items-center px-3">
                         <div class="spinner-border" role="status">
                             <span class="sr-only"></span>

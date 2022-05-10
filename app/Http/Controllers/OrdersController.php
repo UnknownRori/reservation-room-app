@@ -48,7 +48,9 @@ class OrdersController extends Controller
     public function show($user, Orders $orders)
     {
         if (Auth::user()->name != $user && Auth::user()->roles != 'receptionist') return redirect()->back()->with('msg', ['warning', 'You are not the owner!']);
-        // Display Orders Data
+        return view('orders.show', [
+            'order' => $orders
+        ]);
     }
 
     /**
@@ -100,5 +102,10 @@ class OrdersController extends Controller
         $orders->check_out_status = true;
         if ($orders->save()) return redirect()->back()->with('msg', ['success', 'Check out success!']);
         return redirect()->back()->with('msg' . ['success', 'Check out failed!']);
+    }
+
+    public function history()
+    {
+        return view('orders.history');
     }
 }

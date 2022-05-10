@@ -31,14 +31,14 @@ Route::middleware('auth.no')->group(function () {
     });
 });
 
-Route::get('/room-type', [RoomTypeController::class, 'index'])->name('rooms.index');
-Route::get('/room-type/{RoomType:name}', [RoomTypeController::class, 'show'])->name('rooms.show');
-Route::get('/facilities', [HotelFacilityController::class, 'index'])->name('hotelfacility.index');
-// Route::get('/facilities/{hotelfacility:name}', [HotelFacilityController::class, 'show'])->name('hotelfacility.show');
+Route::get('/room-type', [RoomTypeController::class, 'home'])->name('rooms.index');
+Route::get('/room-type/{name}', [RoomTypeController::class, 'show'])->name('rooms.show');
+Route::get('/facilities', [HotelFacilityController::class, 'home'])->name('hotelfacility.index');
 
 Route::middleware('auth')->group(function () {
     Route::post('/auth/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/user/{user}/{orders}', [OrdersController::class, 'show'])->name('user.order.show');
+    Route::get('/user/history', [OrdersController::class, 'history'])->name('user.order.history');
 });
 
 Route::middleware('auth.receptionist')->group(function () {

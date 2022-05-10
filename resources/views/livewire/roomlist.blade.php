@@ -52,8 +52,6 @@
                                 Action
                             </a>
                             <div class="dropdown-menu">
-                                <a href="{{ route('rooms.show', $data->no_room) }}" class="dropdown-item">Show</a>
-                                <div class="dropdown-divider"></div>
                                 @if (Auth::user()->roles == 'admin')
                                     <a href="{{ route('admin.rooms.edit', $data->id) }}" class="dropdown-item">Edit
                                         Room</a>

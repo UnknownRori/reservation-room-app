@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class HotelFacilityController extends Controller
 {
+
+    public function home()
+    {
+        return view('facilities.home');
+    }
     /**
      * Display a listing of the resource.
      *

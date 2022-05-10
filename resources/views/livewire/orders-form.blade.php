@@ -51,6 +51,11 @@
                 @if (session()->has('message'))
                     <div class="alert alert-{{ session('message')[0] }}">
                         {{ session('message')[1] }}
+                        @if (isset(session('message')[2]))
+                            Please print the
+                            <a href="{{ route('user.order.show', session('message')[2]) }}">Receipt</a>
+                            .
+                        @endif
                     </div>
                 @endif
                 <div class="row align-content-center items-center text-center">

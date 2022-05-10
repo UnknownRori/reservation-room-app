@@ -71,17 +71,17 @@
                                 <a href="{{ route('user.order.show', [$data->User->name, $data->id]) }}"
                                     class="dropdown-item">Show</a>
                                 <div class="dropdown-divider"></div>
-                                @if (!$data->check_out_status)
-                                    <form action="{{ route('receptionist.orders.checkout', $data->id) }}"
-                                        method="post">
-                                        @csrf
-                                        <input type="submit" value="Check out" class="dropdown-item">
-                                    </form>
-                                @elseif(!$data->check_in_status)
+                                @if (!$data->check_in_status)
                                     <form action="{{ route('receptionist.orders.checkin', $data->id) }}"
                                         method="post">
                                         @csrf
                                         <input type="submit" value="Check in" class="dropdown-item">
+                                    </form>
+                                @elseif(!$data->check_out_status)
+                                    <form action="{{ route('receptionist.orders.checkout', $data->id) }}"
+                                        method="post">
+                                        @csrf
+                                        <input type="submit" value="Check out" class="dropdown-item">
                                     </form>
                                 @endif
                                 <form action="{{ route('receptionist.orders.destroy', $data->id) }}" method="post">

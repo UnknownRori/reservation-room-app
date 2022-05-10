@@ -42,3 +42,9 @@ body {
     transform: translateY(-2px);
     box-shadow: 0px 4px 10px 1.5px gray !important;
 }
+
+.background {
+    background-image: url('../img/beautiful-luxury-outdoor-swimming-pool-hotel-resort.jpg');
+    background-position: center;
+    filter: brightness(80%);
+}

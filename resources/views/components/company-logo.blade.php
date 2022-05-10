@@ -1,5 +1,5 @@
 <a href="#app" class="navbar-brand">
     <h4 class="text-warning">
-        HotelCompany
+        Schmhotel
     </h4>
 </a>

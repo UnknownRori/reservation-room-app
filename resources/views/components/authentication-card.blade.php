@@ -5,6 +5,7 @@
                 {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu">
+                <a href="{{ route('user.order.history') }}" class="dropdown-item">History</a>
                 @if (Auth::user()->roles == 'admin')
                     <a href="{{ route('admin.dashboard') }}"
                         class="dropdown-item {{ $title == 'Dashboard' ? 'active' : '' }}">Dashboard</a>
@@ -14,6 +15,7 @@
                         class="dropdown-item {{ $title == 'Dashboard' ? 'active' : '' }}">Dashboard</a>
                     <div class="dropdown-divider"></div>
                 @endif
+
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <input type="submit" value="Logout" class="dropdown-item">

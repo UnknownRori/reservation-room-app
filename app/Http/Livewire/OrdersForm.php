@@ -27,7 +27,8 @@ class OrdersForm extends Component
     {
         $credentials = $this->validate();
         $credentials['users_id'] = Auth::user()->id;
-        if (Orders::create($credentials)) session()->flash('message', ['success', 'Room successfully reserved!']);
+        $result = Orders::create($credentials);
+        if ($result) session()->flash('message', ['success', 'Room successfully reserved!', [$result->User->name, $result->id]]);
         else session()->flash('message', ['danger', 'Room failed to reserve!']);
     }
 

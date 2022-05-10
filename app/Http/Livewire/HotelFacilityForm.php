@@ -11,6 +11,12 @@ class Hotelfacilityform extends Component
     use WithFileUploads;
     public $facility_id, $name, $description, $img, $update;
 
+    protected $rules = [
+        'name' => ['required', 'string', 'unique:hotel_facilities,name'],
+        'description' => ['required', 'string'],
+        'img' => ['required', 'image'],
+    ];
+
     public function mount($facility = null)
     {
         if (!is_null($facility)) {
@@ -25,7 +31,7 @@ class Hotelfacilityform extends Component
     {
         $property = $this->validate();
         if ($this->update) {
-            $room = HotelFacility::findorFail($this->room_id);
+            $room = HotelFacility::findorFail($this->facility_id);
             $room->fill($property);
             if ($room->save()) {
                 session()->flash('msg', ['success', 'Hotel facility successfully updated!']);

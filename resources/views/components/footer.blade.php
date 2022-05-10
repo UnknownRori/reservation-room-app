@@ -3,9 +3,9 @@
         <div class="row text-white">
             <div class="col-md-4 my-2">
                 <h3 class="text-warning">
-                    HotelCompanyPlaceholder.
+                    Schmhotel
                 </h3>
-                <p>2022 &copy; HotelCompanyPlaceholder. All Right Reserved.</p>
+                <p>2022 &copy; Schmhotel Inc. All Right Reserved.</p>
             </div>
             <div class="col-md-4 my-2">
                 <h3>Explore Us</h3>
