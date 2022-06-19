@@ -44,3 +44,10 @@ Last of my high school web project.
 - `Receptionist` can do filtering in reservation data.
 
 ## 🖼️ Preview
+
+![image](https://user-images.githubusercontent.com/68576836/174503208-49a014ac-01aa-4a98-88e2-02ad85521b68.png)
+
+![image](https://user-images.githubusercontent.com/68576836/174503236-7a596e1b-ba41-4915-84b0-4f50bd3d7a06.png)
+
+![image](https://user-images.githubusercontent.com/68576836/174503292-dc7295da-5c60-4624-b1ac-4547d4d006eb.png)
+
