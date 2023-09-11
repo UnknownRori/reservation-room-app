@@ -45,8 +45,7 @@ Last of my high school web project.
 
 ## 🖼️ Preview
 
-![image](https://github.com/UnknownRori/reservation-room-app/assets/68576836/a39cbe5b-f6fb-446d-9e76-7b6abe12f31a)
-
+![image](https://github.com/UnknownRori/reservation-room-app/assets/68576836/6380e0ca-3bd0-4342-a514-584cd135b782)
 
 ![image](https://user-images.githubusercontent.com/68576836/174503208-49a014ac-01aa-4a98-88e2-02ad85521b68.png)
 
